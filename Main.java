@@ -1,4 +1,4 @@
-public class Lab04 {
+public class Main {
     public static void main(String[] args) {
         // Create and test student records
         HealthRecord student1 = new HealthRecord(120);
