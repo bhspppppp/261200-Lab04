@@ -1,22 +1,20 @@
 public class HealthRecord {
 
-    private int height;  // person's height in centimeters
+    private int height;
 
-    // Constants (static final)
     private static final int MIN_PERMITTED_HEIGHT = 30;
     private static final int MAX_PERMITTED_HEIGHT = 275;
     private static final int DEFAULT_HEIGHT = 165;
 
-    // Class-level tracking (static)
     private static int tallestHeight = MIN_PERMITTED_HEIGHT;
     private static int shortestHeight = MAX_PERMITTED_HEIGHT ;
 
-    private static int counter = 0; // count number of objects
-    private static double averageHeight; // track average height
+    private static int counter = 0;
+    private static double averageHeight;
 
 
     public HealthRecord(int height) {
-        counter++; // count this object before using it for average calc
+        counter++;
         this.setHeight(height);
     }
 
@@ -26,7 +24,6 @@ public class HealthRecord {
 
     public void setHeight(int height) {
 
-        // Validate height is within permitted range
         if (height >= MIN_PERMITTED_HEIGHT && height <= MAX_PERMITTED_HEIGHT) {
             this.height = height;
 
@@ -40,9 +37,6 @@ public class HealthRecord {
             this.height = DEFAULT_HEIGHT;
         }
 
-        // update average using: y' = (y*n + x)/(n+1)
-        // n = count BEFORE this object, so with counter already incremented
-        // n = counter - 1
         int n = counter - 1;
         averageHeight = (averageHeight * n + this.height) / counter;
     }
